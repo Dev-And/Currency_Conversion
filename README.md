@@ -1,44 +1,46 @@
 
 
-## Usage
+# Usage
 
 require './Money'
 
-#Configuration base currency
+## Configuration base currency
 
 Money.conversion_rates('UAH', 'USD': 0.038, 'EUR': 0.033)
 
-# Instantiate money objects:
+## Instantiate money objects:
 
 cash1 = Money.new(100, 'UAH')
 
-# Get amount and currency:
+## Get amount and currency:
 
 cash1.amount #=> 100
 cash1.currency #=> "UAH"
 cash1.inspect #=> 100  "UAH"
 
-#Convert to a different currency:
+##Convert to a different currency:
 
 cash1.convert_to('USD') #=> 3.80  USD
 
-# Perform operations in different currencies:
+## Perform operations in different currencies:
 
 five_eur = Money.new(5, 'EUR')
 
-# Arithmetics:
-
+## Arithmetics:
+ ***
  five_eur + cash1 # => 251.52  UAH
+ ***
  five_eur - cash1 # => -51.52  UAH
+ ***
  five_eur / cash1 # => 0.66  UAH
+ ***
  five_eur * 2 # => 200.00  UAH
 
-# Comparisons:
+## Comparisons:
 five_eur > Money.new(20, 'EUR') # => true
+***
 five_eur == Money.new(45, 'USD') # => false
 
 
-## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
